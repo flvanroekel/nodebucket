@@ -29,6 +29,7 @@
     "body-parser": "^1.19.0",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
+    "flexlayout-react": "^0.3.6",
     "hammerjs": "^2.0.8",
     "mongoose": "^5.7.8",
     "morgan": "^1.9.1",
