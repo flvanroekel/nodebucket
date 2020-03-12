@@ -1,3 +1,12 @@
+/*
+========================================
+  ; Title: app.e2e-spec.ts
+  ; Author: Faye Van Roekel
+  ; Date: 10 March 2020
+  ; Description: app.e2e-spec.ts
+=========================================
+*/
+
 import { AppPage } from './app.po';
 import { browser, logging } from 'protractor';
 
