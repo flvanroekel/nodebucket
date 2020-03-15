@@ -1,3 +1,12 @@
+/*
+=======================================
+  ; Title: app.module.ts
+  ; Author: Faye Van Roekel
+  ; Date: 10 March 2020
+  ; Description: app.module.ts
+========================================
+*/
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule} from '@angular/router';
@@ -10,18 +19,23 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BaseLayoutComponent } from './shared/base-layout/base-layout.component';
 import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
 import { HomeComponent } from './pages/home/home.component';
-import {FlexLayoutModule} from '@angular/flex-layout';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { CookieService } from 'ngx-cookie-service';
+import { LoginComponent } from './pages/login/login.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     BaseLayoutComponent,
     AuthLayoutComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +48,9 @@ import { CookieService } from 'ngx-cookie-service';
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
+    MatCardModule,
+    MatFormFieldModule
+
   ],
   providers: [
     CookieService

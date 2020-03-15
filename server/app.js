@@ -18,59 +18,50 @@ const Employee = require('./models/employee');
 let app = express();
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({'extended': true}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(morgan('dev'));
 
 app.use(express.static(path.join(__dirname, '../dist/nodebucket')));
 app.use('/', express.static(path.join(__dirname, '../dist/nodebucket')));
 
 // Global variables
-const serverPort = 3000;
+const port = process.env.PORT || 3000;
 
 /************************* Mongoose connection strings go below this line  ***************/
 
-const connString = 'mongodb+srv://<username>:<password>@buwebdev-cluster-1-2fw4y.mongodb.net/test';
+const connString = 'mongodb+srv://admin:admin@buwebdev-cluster-1-2fw4y.mongodb.net/nodebucket?retryWrites=true&w=majority';
 
-mongoose.connect(connString, {promiseLibrary:require('bluebird'), useNewUrlParser: true})
-        .then(() => console.debug('Connection to the MongoDB instance was successful!'))
-        .catch((err) => console.debug('MongoDB Error: ' + err.message));
-
-
-/************************* API routes go below this line ********************/
-
-app.post('/api/employees', function(req, res, next) {
-  const employee = {
-    employeeId: req.body.employeeId,
-    firstname: req.body.firstname,
-    lastname: req.body.lastname
-  };
-
-  Employee.create(employee, function(err, employees) {
+mongoose
+  .connect(connString, {
+    promiseLibrary: require("bluebird"),
+    useUnifiedTopology: true,
+    useNewUrlParser: true
+  })
+  .then(() => {
+    console.debug(`Connection to the database instance was successful`);
+  })
+  .catch(err => {
+    console.log(`MongoDB Error: ${err.message}`);
+  }); // ********end the connection
+/**
+ * API(s)
+ */
+// *******API is used  - gets single employee from database
+app.get("/api/employees/:empId", function(req, res, next) {
+  //*******Retrieves documents from mongoDB 
+  Employee.findOne({ empId: req.params.empId }, function(err, employee) {
     if (err) {
       console.log(err);
       return next(err);
     } else {
-      console.log(employees);
-      res.json(employees);
-    }
-  });
-});
-
-app.get('/api/employees/:id', function(req, res, next) {
-  Employee.findOne({'employeeId': req.params.id}, function(err, employee) {
-    if (err) {
-      console.log(err);
-      return next(err);
-    }  else {
       console.log(employee);
       res.json(employee);
     }
-  })
+  });
 });
-
 /**
- * Creates an express server and listens on port 3000
+ * ******Start / Create Server
  */
-http.createServer(app).listen(serverPort, function() {
-  console.log(`Application started and listing on port: ${serverPort}`);
-});
+http.createServer(app).listen(port, function() {
+  console.log(`Application started and listening on port: ${port}`);
+}); // ******end Create Server

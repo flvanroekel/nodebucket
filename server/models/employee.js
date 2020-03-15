@@ -10,9 +10,11 @@
 const mongoose = require('mongoose');
 
 let employeeSchema = mongoose.Schema({
-  employeeId: String,
-  firstName: String,
-  lastName: String
-});
+  empId: { type: String, unique: true, dropDups: true },
+  firstName: { type: String },
+  lastName: { type: String },
+}, {
+  collection: 'employees'
+})
 
 module.exports = mongoose.model('Employee', employeeSchema);
