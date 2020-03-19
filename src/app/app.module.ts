@@ -27,6 +27,9 @@ import { CookieService } from 'ngx-cookie-service';
 import { LoginComponent } from './pages/login/login.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { AuthGuard } from './shared/guards/auth.guard';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatInputModule } from "@angular/material/input";
 
 
 @NgModule({
@@ -49,11 +52,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatButtonModule,
     MatIconModule,
     MatCardModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSnackBarModule,
+    MatInputModule
 
   ],
   providers: [
-    CookieService
+    CookieService, AuthGuard
   ],
   bootstrap: [AppComponent]
 })
