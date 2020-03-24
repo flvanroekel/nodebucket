@@ -30,7 +30,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule } from "@angular/material/input";
-
+import { AboutComponent } from "./pages/about/about.component";
+import { MatDividerModule } from "@angular/material/divider";
+import { MatDialogModule } from '@angular/material/dialog';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { TaskCreateDialogComponent } from './shared/task-create-dialog/task-create-dialog.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,10 @@ import { MatInputModule } from "@angular/material/input";
     BaseLayoutComponent,
     AuthLayoutComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    AboutComponent,
+    NotFoundComponent,
+    TaskCreateDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -54,8 +61,9 @@ import { MatInputModule } from "@angular/material/input";
     MatCardModule,
     MatFormFieldModule,
     MatSnackBarModule,
-    MatInputModule
-
+    MatInputModule,
+    MatDividerModule,
+    MatDialogModule
   ],
   providers: [
     CookieService, AuthGuard
