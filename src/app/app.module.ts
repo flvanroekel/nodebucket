@@ -35,6 +35,8 @@ import { MatDividerModule } from "@angular/material/divider";
 import { MatDialogModule } from '@angular/material/dialog';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { TaskCreateDialogComponent } from './shared/task-create-dialog/task-create-dialog.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -63,7 +65,9 @@ import { TaskCreateDialogComponent } from './shared/task-create-dialog/task-crea
     MatSnackBarModule,
     MatInputModule,
     MatDividerModule,
-    MatDialogModule
+    MatDialogModule,
+    MatMenuModule,
+    DragDropModule
   ],
   providers: [
     CookieService, AuthGuard
