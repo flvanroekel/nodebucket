@@ -1,23 +1,26 @@
 .main-welcome {
- margin-top: 30px;
+    margin-top: 40px;
+    width: 90%;
 }
 
 .title {
- text-align: center;
- font-weigh: lighter;
-
+    text-align: center;
+    font-weight: bold;
 }
 
 .subtitle {
     text-align: center;
-    font-size: 14 px;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .about-content {
- width: 50%;
- margin: 0 auto;
+    width: 60%;
+    margin: 0 auto;
 }
 
 .p-title {
- font-size: 24 px;
+    font-size: 24px;
+    font-weight: bold;
+    color: blue;
 }

@@ -11,16 +11,18 @@
 
 .title {
   text-align: center;
-  font-weight: lighter;
+  font-weight: bold;
 }
 
 .subtitle {
   text-align: center;
   font-size: 14px;
+  font-weight: italic;
 }
 
 .task-title {
   font-weight: lighter;
+  color: blue;
 }
 
 .tasks-container {
@@ -29,9 +31,9 @@
 }
 
 .task-list {
-  border: solid 1px #ccc;
+  border: solid 1px black;
   min-height: 60px;
-  background: white;
+  background: lightgray;
   border-radius: 4 px;
   overflow: hidden;
   display: block;
@@ -53,7 +55,7 @@
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
-.example-box: last-child {
+.example-box last-child {
   border: none;
 }
 
